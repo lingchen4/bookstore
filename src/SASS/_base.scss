@@ -1,0 +1,28 @@
+$color-bg: #131321;
+$color-text: #fff;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn {
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+
+  &-delete{
+    background-color: #ce4a3be3;
+
+    &:hover{
+      background-color: #751b05;
+    }
+  }
+}

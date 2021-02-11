@@ -1,38 +1,108 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@charset "UTF-8";
+.container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn {
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+.btn-delete {
+  background-color: #ce4a3be3;
+}
+.btn-delete:hover {
+  background-color: #751b05;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  background-color: #131321;
+  color: #fff;
 }
+.navbar-container {
+  padding: 15px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 20px;
+  margin: 0;
+}
+.navbar__brand svg {
+  fill: #fff;
+  margin-right: 10px;
+  display: inline-block;
+}
+.navbar__btn {
+  background-color: #c69963;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+.navbar__btn:hover {
+  background-color: #B28451;
+}
+
+.books__cover img {
+  width: 100%;
+}
+.books__container {
+  margin: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.book {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #fff;
+  padding: 10px;
+  display: grid;
+  row-gap: 10px;
+}
+.book__img {
+  width: 100%;
+}
+.book__name {
+  color: #0066c0;
+}
+.book__category {
+  color: #565959;
+  text-transform: capitalize;
+  position: relative;
+  padding-left: 8px;
+  color: #0066c0;
+}
+.book__category:before {
+  content: "›";
+  color: #949494;
+  display: block;
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  top: -1px;
+}
+.book__price {
+  color: #B12704;
+}
+
+/*# sourceMappingURL=App.css.map */
