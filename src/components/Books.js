@@ -1,9 +1,15 @@
 import React from "react";
-import { samples } from "../samples";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from 'react'
 import Book from "./Book";
 
 function Books() {
+  const [books, setbooks] = useState([])
+  const Books = useSelector(state => state.bookItems)
   
+  useEffect(() => {
+    setbooks(Books)
+  }, [Books])
   return (
     <div>
       <div className="container">
@@ -15,8 +21,8 @@ function Books() {
             />
           </div>
           <div className="books__container">
-            {samples.map((item) => (
-              <Book name={item.name} price={item.price} category={item.category} description={item.description}  />
+            {books.map((item) => (
+              <Book name={item.name} price={item.price} category={item.category} description={item.description} id={item.id} key={item.id} img={item.img} />
             ))}
           </div>
         </div>

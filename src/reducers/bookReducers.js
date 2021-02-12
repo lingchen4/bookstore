@@ -1,46 +1,58 @@
 import {
   BOOK_ADD_ITEM,
   BOOK_REMOVE_ITEM,
+  BOOK_UPDATE_ITEM,
+  CLOSE_POPUP,
+  OPEN_POPUP,
 } from '../constants/bookConstants'
 
+import { samples } from "../samples";
+
 export const bookReducer = (
-  state = { bookItems: []},
+  state = { bookItems: [...samples], seen:false, editItem:{name:'', price:0,category:'',description:''}},
   action
 ) => {
   switch (action.type) {
+
+    case OPEN_POPUP:
+      return {...state, seen:true}
+
+    case CLOSE_POPUP:
+      return {...state, seen:false,editItem:{}}
+
     case BOOK_ADD_ITEM:
       const item = action.payload
-
-      const existItem = state.cartItems.find((x) => x.product === item.product)
-
-      if (existItem) {
+      const allBook = state.bookItems
+      if(item.id){
         return {
           ...state,
-          cartItems: state.cartItems.map((x) =>
-            x.product === existItem.product ? item : x
-          ),
+          bookItems: [item, ...state.bookItems.filter(e=> e.id!==item.id)],
+          seen:false,
+          editItem:{},
         }
-      } else {
+      }else{
+        item.id = parseInt(Math.random() * 10 ** 7)
         return {
           ...state,
-          cartItems: [...state.cartItems, item],
+          bookItems: [item, ...allBook],
+          seen:false,
         }
-      }
-    case CART_REMOVE_ITEM:
+      } 
+      
+      
+    case BOOK_REMOVE_ITEM:
       return {
         ...state,
-        cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+        bookItems: state.bookItems.filter((x) => x.id !== action.payload),
       }
-    case CART_SAVE_SHIPPING_ADDRESS:
-      return {
-        ...state,
-        shippingAddress: action.payload,
-      }
-    case CART_SAVE_PAYMENT_METHOD:
-      return {
-        ...state,
-        paymentMethod: action.payload,
-      }
+
+      case BOOK_UPDATE_ITEM:
+        return {
+          ...state,
+          seen:true,
+          editItem: action.payload
+        }
+    
     default:
       return state
   }

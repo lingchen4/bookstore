@@ -28,7 +28,7 @@
   color: #fff;
 }
 .navbar-container {
-  padding: 15px 10%;
+  padding: 0px 10%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -76,21 +76,25 @@
   border: 1px solid rgba(0, 0, 0, 0.125);
   background-color: #fff;
   padding: 10px;
+  max-width: 350px;
   display: grid;
   row-gap: 10px;
 }
 .book__img {
   width: 100%;
+  height: 240px;
+  cursor: pointer;
 }
 .book__name {
   color: #0066c0;
+  cursor: pointer;
 }
 .book__category {
   color: #565959;
   text-transform: capitalize;
   position: relative;
   padding-left: 8px;
-  color: #0066c0;
+  color: #0a3052;
 }
 .book__category:before {
   content: "›";
@@ -103,6 +107,46 @@
 }
 .book__price {
   color: #B12704;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.modal__close {
+  width: 100%;
+  text-align: right;
+  font-size: 25px;
+  margin: -20px 0 0 10px;
+  cursor: pointer;
+}
+.modal__header {
+  color: teal;
+  text-transform: capitalize;
+}
+.modal__content {
+  background-color: white;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 40%;
+  transform: translateX(-50%);
+  min-width: 320px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+.modal__form {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 10px;
+}
+.modal__submit {
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=App.css.map */
